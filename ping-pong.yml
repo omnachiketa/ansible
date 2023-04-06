@@ -1,6 +1,6 @@
 ---
 - name: Test ping-ping
-  hosts: all
+  hosts: awx
   become: yes
 
   tasks:
