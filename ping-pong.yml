@@ -1,0 +1,8 @@
+---
+- main: Test ping-ping
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Ping my servers
+    ping: 
