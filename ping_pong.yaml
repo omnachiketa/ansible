@@ -1,5 +1,5 @@
 ---
-- main: Test ping-ping
+- name: Test ping-ping
   hosts: all
   become: yes
 
