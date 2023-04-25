@@ -1,5 +1,8 @@
 ---
 - name: mysql_plugin
-  plugin: mysql_plugin            # Name of the plugin
-  query_string: |
-    SELECT hostname,hostgroup FROM inventory
+  host: all
+  tasks:
+  - name: use plugin
+    plugin: mysql_plugin            # Name of the plugin
+    query_string: |
+      SELECT hostname,hostgroup FROM inventory
