@@ -1,0 +1,5 @@
+---
+- name: mysql_plugin
+  plugin: mysql_plugin            # Name of the plugin
+  query_string: |
+    SELECT hostname,hostgroup FROM inventory
