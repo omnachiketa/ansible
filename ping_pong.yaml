@@ -8,4 +8,4 @@
     ping: 
   - name: print
     ansible.builtin.debug:
-      msg: this is the value 
+      msg: this is the value {{ hostvars['awxsetup.omid.expertcity.com'] }}
