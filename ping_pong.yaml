@@ -6,3 +6,6 @@
   tasks:
   - name: Ping my servers
     ping: 
+  - name: print
+    ansible.builtin.debug:
+      msg: this is the value {{ syslog_remote_host }}
