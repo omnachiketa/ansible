@@ -8,4 +8,8 @@
     ping: 
   - name: print
     ansible.builtin.debug:
-      msg: this is the value {{ hostvars['awxsetup.omid.expertcity.com']['booter'] }}
+      msg: this is the value {{ hostvars['awxsetup.omid.expertcity.com'] }}
+  - name: print group_vars
+    ansible.builtin.setup:
+      filter:
+        - 'booter'
