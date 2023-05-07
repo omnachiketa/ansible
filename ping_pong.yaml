@@ -11,7 +11,7 @@
       msg: this is the value {{ hostvars['awxsetup.omid.expertcity.com'] }}
   - name: read vars
     set_fact:
-      list2: "{{ ansible_play_hosts_all|map('extract', hostvars, 'ansible_host')| join(',') }}
+      list2: "{{ ansible_play_hosts_all|map('extract', hostvars, 'ansible_host')| join(',') }}"
   - name: Print vars
     ansible.builtin.debug:
       var: list2
