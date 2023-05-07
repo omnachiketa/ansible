@@ -9,7 +9,7 @@
   - name: print
     ansible.builtin.debug:
       msg: this is the value {{ hostvars['awxsetup.omid.expertcity.com'] }}
-  - name: print
+  - name: print booter
     ansible.builtin.debug:
       var: booter
   - name: Print all available facts
