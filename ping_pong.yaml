@@ -9,9 +9,12 @@
   - name: print
     ansible.builtin.debug:
       msg: this is the value {{ hostvars['awxsetup.omid.expertcity.com'] }}
-  - name: print booter
+  - name: read vars
+    set_fact:
+      list2: "{{ ansible_play_hosts_all|map('extract', hostvars, 'ansible_host')| join(',') }}
+  - name: Print vars
     ansible.builtin.debug:
-      var: booter
+      var: list2
   - name: Print all available facts
     ansible.builtin.debug:
       var: ansible_facts
