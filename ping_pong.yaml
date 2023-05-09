@@ -1,6 +1,6 @@
 ---
 - name: Test ping-ping
-  hosts: all
+  hosts: awx
   become: yes
   gather_facts: yes
   tasks:
@@ -9,12 +9,6 @@
   - name: print
     ansible.builtin.debug:
       msg: this is the value {{ hostvars['awxsetup.omid.expertcity.com'] }}
-  - name: read vars
-    set_fact:
-      list2: "{{ ansible_play_hosts_all|map('extract', hostvars | join(',') }}"
-  - name: Print vars
-    ansible.builtin.debug:
-      var: list2
   - name: Print all available facts
     ansible.builtin.debug:
-      var: ansible_facts
+      var: nameserver
