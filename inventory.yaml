@@ -1,0 +1,61 @@
+all:
+  children:
+    awx:
+      hosts:
+        pocawx.omid.expertcity.com:
+          booter: smprofff1.example.com
+          epl_repo: rhel8
+          nameservers: 1.1.1.1
+          ntp_server: server3.example.com
+          search_domains: expertcity.com,omid.expertcity_com
+    default:
+      hosts:
+        awxsetup.omid.expertcity.com:
+          nameservers: 1.1.1.1
+          search_domains: expertcity.com,omid.expertcity_com
+    gis-monitoring:
+      hosts:
+        ppkvm1.las.expertcity.com:
+          booter: smprofff1.example.com
+          dns_nameservers: 10.24.81.83
+          epl_repo: rhel8
+          ntp_server: server3.example.com
+          snmp_community: asdfasdf
+          syslog_remote_host: syslog1.las.expertcity.com
+    gis-plat-prod:
+      hosts:
+        ldutta-cockpit.omid.expertcity.com:
+          falcon_cid: E70D5609080148398E71961EBFA86CDD
+          falcon_tag: gis-plat-prod
+          nameservers: 1.1.1.1
+          search_domains: expertcity.com,omid.expertcity_com
+        ppkvm2.las.expertcity.com:
+          falcon_cid: E70D5609080148398E71961EBFA86CDD
+          falcon_tag: gis-plat-prod
+          snmp_community: asdfasdf
+          syslog_remote_host: syslog1.las.expertcity.com
+    las.expertcity.com:
+      hosts:
+        ppkvm1.las.expertcity.com: {}
+        ppkvm2.las.expertcity.com: {}
+    omid.expertcity.com:
+      hosts:
+        awxsetup.omid.expertcity.com: {}
+        ldutta-cockpit.omid.expertcity.com: {}
+        pocawx.omid.expertcity.com: {}
+    prod:
+      hosts:
+        awxsetup.omid.expertcity.com: {}
+        ldutta-cockpit.omid.expertcity.com: {}
+        pocawx.omid.expertcity.com: {}
+        ppkvm1.las.expertcity.com: {}
+        ppkvm2.las.expertcity.com: {}
+        provisiontest.service.intra.esn.expertcity.com:
+          app_server: '14.5'
+    service.intra.esn.expertcity.com:
+      hosts:
+        provisiontest.service.intra.esn.expertcity.com: {}
+    svcgroup:
+      hosts:
+        provisiontest.service.intra.esn.expertcity.com: {}
+    ungrouped: {}
