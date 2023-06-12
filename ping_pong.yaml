@@ -5,6 +5,7 @@
   gather_facts: yes
   vars:
     booter: "demo value from playbook"
+    nameserver: "1.1.1.1"
   tasks:
   - name: Ping my servers
     ping: 
