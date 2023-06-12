@@ -14,4 +14,4 @@
       msg: this is the value {{ hostvars[inventory_hostname]}}
   - name: Print all available facts
     ansible.builtin.debug:
-      var: booter
+      var: nameserver
