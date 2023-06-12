@@ -3,6 +3,8 @@
   hosts: awx
   become: yes
   gather_facts: yes
+  vars:
+    booter: ""
   tasks:
   - name: Ping my servers
     ping: 
@@ -11,4 +13,4 @@
       msg: this is the value {{ hostvars['awxsetup.omid.expertcity.com'] }}
   - name: Print all available facts
     ansible.builtin.debug:
-      var: nameserver
+      var: booter
