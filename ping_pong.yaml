@@ -5,7 +5,7 @@
   gather_facts: yes
   vars:
     booter: "demo value from playbook"
-    nameserver: "1.1.1.1"
+    nameservers: "1.1.1.1"
   tasks:
   - name: Ping my servers
     ping: 
@@ -14,4 +14,4 @@
       msg: this is the value {{ hostvars[inventory_hostname]}}
   - name: Print all available facts
     ansible.builtin.debug:
-      var: nameserver
+      var: nameservers
