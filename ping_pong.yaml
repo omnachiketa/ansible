@@ -4,13 +4,13 @@
   become: yes
   gather_facts: yes
   vars:
-    booter: ""
+    booter: "demo value from playbook"
   tasks:
   - name: Ping my servers
     ping: 
   - name: print
     ansible.builtin.debug:
-      msg: this is the value {{ hostvars['awxsetup.omid.expertcity.com'] }}
+      msg: this is the value {{ hostvars.ansible_ssh_host }}
   - name: Print all available facts
     ansible.builtin.debug:
       var: booter
