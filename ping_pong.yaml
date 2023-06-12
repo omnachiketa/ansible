@@ -11,7 +11,7 @@
     ping: 
   - name: print
     ansible.builtin.debug:
-      msg: this is the value {{ hostvars[inventory_hostname].nameservers}}
+      msg: this is the value {{ hostvars[inventory_hostname].nameservers }}
   - name: Print all available facts
     ansible.builtin.debug:
       var: nameservers
