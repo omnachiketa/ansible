@@ -1,6 +1,6 @@
 ---
 - name: Test ping-ping
-  hosts: "{{ targets | default(awx) }}"
+  hosts: "{{ targets | default('awx') }}"
   become: yes
   gather_facts: yes
   vars:
