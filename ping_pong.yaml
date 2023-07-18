@@ -1,6 +1,6 @@
 ---
 - name: Test ping-ping
-  hosts: awx
+  hosts: {{ all | default 'awx' }}
   become: yes
   gather_facts: yes
   vars:
