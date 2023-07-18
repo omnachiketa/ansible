@@ -83,8 +83,7 @@ class InventoryModule(BaseInventoryPlugin):
         if super(InventoryModule, self).verify_file(path):
             #base class verifies that file exists 
             #and is readable by current user
-            if path.endswith(('mysql_plugin.yaml',
-                              'mysql_plugin.yml')):
+            if path.endswith(('mysql_plugin.yml')):
                 valid = True
         return valid
     
