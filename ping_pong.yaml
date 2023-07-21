@@ -15,3 +15,11 @@
   - name: Print all available facts
     ansible.builtin.debug:
       var: nameservers
+  - name: print dir
+    local_action:
+        module: ansible.builtin.shell
+        cmd: ls -l 
+  - name: run plugin
+    local_action:
+        module: ansible.builtin.shell
+        cmd: ansible-inventory -i mysql_pluin --list
