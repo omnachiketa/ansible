@@ -22,4 +22,4 @@
   - name: run plugin
     local_action:
         module: ansible.builtin.shell
-        cmd: ansible-inventory -i mysql_plugin.yml --list
+        cmd: sudo ansible-inventory -i mysql_plugin.yml --list
