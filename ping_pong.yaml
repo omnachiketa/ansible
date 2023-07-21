@@ -18,7 +18,7 @@
   - name: print dir
     local_action:
         module: ansible.builtin.shell
-        cmd: ls -l 
+        cmd: ls -l ; echo $SHELL ; env
   - name: run plugin
     local_action:
         module: ansible.builtin.shell
