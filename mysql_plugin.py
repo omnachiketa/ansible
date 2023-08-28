@@ -103,22 +103,25 @@ class InventoryModule(BaseInventoryPlugin):
         '''Connect to mysql database'''
 
         '''Return the hosts and groups'''
-        self.myinventory = self._get_mysql_data()
-        for hostname,attributes in self.myinventory.items():
-          for key in ['hostgroup', 'domain', 'env']: 
-            gname = self.inventory.add_group(attributes[key])
-            self.inventory.add_host(host=hostname, group=gname)
-            variables = eval(str(attributes['var']))
-            if variables:
-              for name, value in variables.items():
-                self.inventory.set_variable(hostname, name, value)
-            query = f"SELECT v.name, p.value FROM parameters AS p JOIN categories AS c ON p.category_id = c.id JOIN variables AS v ON p.var_id = v.id WHERE c.type = %s AND c.description = %s"
-            values = (key,attributes[key])
-            result = self.execute_query(query,values)
-            if result:
-              vars = {var[0]: var[1] for var in result}
-              for k,v in vars.items():
-                self.inventory.set_variable(hostname, k,v)
+        try:
+            self.myinventory = self._get_mysql_data()
+            for hostname,attributes in self.myinventory.items():
+              for key in ['hostgroup', 'domain', 'env']: 
+                gname = self.inventory.add_group(attributes[key])
+                self.inventory.add_host(host=hostname, group=gname)
+                variables = eval(str(attributes['var']))
+                if variables:
+                  for name, value in variables.items():
+                    self.inventory.set_variable(hostname, name, value)
+                query = f"SELECT v.name, p.value FROM parameters AS p JOIN categories AS c ON p.category_id = c.id JOIN variables AS v ON p.var_id = v.id WHERE c.type = %s AND c.description = %s"
+                values = (key,attributes[key])
+                result = self.execute_query(query,values)
+                if result:
+                  vars = {var[0]: var[1] for var in result}
+                  for k,v in vars.items():
+                    self.inventory.set_variable(hostname, k,v)
+        except Exception as e:
+            raise AnsibleParserError('DB data not able to papulate: {}'.format(e))
               
     def parse(self, inventory, loader, path, cache):
         '''Return dynamic inventory from source '''
