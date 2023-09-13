@@ -15,11 +15,11 @@
   - name: Print all available facts
     ansible.builtin.debug:
       var: nameservers
-  - name: print dir
-    local_action:
-        module: ansible.builtin.shell
-        cmd: ls -l ; echo $SHELL ; env; chmod 777 ./*
-  - name: run plugin
-    local_action:
-        module: ansible.builtin.shell
-        cmd: ansible-inventory -i mysql_plugin.yml --list
+ # - name: print dir
+ #  local_action:
+ #       module: ansible.builtin.shell
+ #       cmd: ls -l ; echo $SHELL ; env; chmod 777 ./*
+#  - name: run plugin
+#   local_action:
+#        module: ansible.builtin.shell
+#        cmd: ansible-inventory -i mysql_plugin.yml --list
